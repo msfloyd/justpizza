@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+  <link rel="icon" href="../../favicon.ico">
+
+  <title>Menu</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- Custom styles for this template -->
+
+  <link href="css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+  <!--Navbar Start-->
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header">
+
+      <a class="navbar-brand" id="brand" href="index.html">Just Pizza</a>
+
+      <button type="button" data-target="#myNavbar" data-toggle="collapse" class="navbar-toggle"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> </div>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+
+      <ul class="nav nav-pills">
+        <li><a href="index.html" id="homenav">Home</a></li>
+        <li><a href="aboutus.html" id="aboutusnav">About Us</a></li>
+        <li><a href="menu.html" id="menunav" >Menu</a></li>
+
+      </ul>
+
+    </div>
+    <!-- navbar collapse -->
+    <div id="opencart"><span class="glyphicon glyphicon-shopping-cart"><span id="cartnumber"></span></span>
+    </div>
+
+  </nav>
+  <!--Nav Bar End -->
+
+  <div class="container-fluid">
+    <div class="container" id="cart">
+      <div class="order">
+        <div id="closecart"><span class="glyphicon glyphicon-remove"></span></div>
+        <h5>Order</h5>
+
+        <!--            </div>-->
+        <table class="table table-fixed" id="ordertable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Item</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td>Order Total</td>
+              <td id="ordertotal">0</td>
+              <td class=small-row></td>
+            </tr>
+            <tr>
+              <td><input type="button" class="btn btn-sm btn-danger" value="Cancel Order" onclick="clearcart()"></td>
+              <td><input type="button" class="btn btn-sm btn-success" id="checkout" value="Checkout" onclick="placeorder()"></td>
+            </tr>
+          </tfoot>
+          <tbody id="orderlist">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <div>
+      <ul class="nav nav-tabs nav-tabs-color">
+        <li class="active"><a data-toggle="tab" href="#menu1">Hot Fresh Pizza</a></li>
+        <li><a data-toggle="tab" href="#menu2">Delicious Sides and Drinks</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="menu1" class="tab-pane fade in active">
+
+          <div class="row table-img">
+            <div class="col-sm-6 col-md-3">
+
+              <div class="panel panel-default" id="custom-pizza">
+                <div class="panel-heading">Custom Pizza</div>
+                <div id="crusttype">Regular</div>
+                <div id="pizzasize">Medium</div>
+                <div class="panel-body" id="custom-pizza-body"></div>
+
+                <div class="panel-footer align-right">
+                  <input type="button" class="btn btn-success inlinebutton" value="Add to Cart"> Total: <span id="custompizzatotal"></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-0 col-md-2"></div>
+            <div class="col-sm-6 col-md-3">
+              <div id="plate-img">
+                <div id="crust-img">
+                  <div id="pepperoni-img" class="hideit"></div>
+                  <div id="sausage-img" class="hideit"></div>
+                  <div id="bacon-img" class="hideit"></div>
+                  <div id="chicken-img" class="hideit"></div>
+                  <div id="mushrooms-img" class="hideit"></div>
+                  <div id="onions-img" class="hideit"></div>
+                  <div id="greenpeppers-img" class="hideit"></div>
+                  <div id="extracheese-img" class="hideit"></div>
+                  <div id="pineapples-img" class="hideit"></div>
+                  <div id="olives-img" class="hideit"></div>
+                  <div id="anchovies-img" class="hideit"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-0 col-md-2"></div>
+
+
+          </div>
+          <div class="row menurow">
+            <div class="col-md-3 col-sm-6 col-xs-12" id="size">
+              <h3 class="itemheading">Size</h3>
+              <div class="radio">
+                <label><input type="radio" name="size" value="Personal">Personal</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="size" value="Medium" checked>Medium</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="size" value="Large">Large</label>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12" id="crust">
+              <h3 class="itemheading">Type of Crust</h3>
+              <div class="radio">
+                <label><input type="radio" name="crust" value="Regular" checked>Regular</label>
+              </div>
+              <div class="radio">
+
+                <label><input type="radio" name="crust" value="Whole Wheat">Whole Wheat</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="crust" value="Gluten Free">Gluten Free</label>
+              </div>
+
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12" id="meattoppings">
+              <h3 class="itemheading">Meat Toppings</h3>
+              <div class="checkbox">
+                <label><input type="checkbox" id="pepperoni" value="Pepperoni">Pepperoni</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id ="sausage" value="Sausage">Sausage</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id ="bacon" value="Bacon">Bacon</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id="chicken" value="Chicken">Chicken</label>
+              </div>
+
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12" id="othertoppings">
+
+              <h3 class="itemheading">Other Toppings</h3>
+              <div class="checkbox">
+                <label><input type="checkbox" id="mushrooms" value="Mushrooms"> Mushrooms</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id="onions" value="Onions">Onions</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id="greenpeppers" value="Green Peppers"> Green Peppers</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id="extracheese" value="Extra Cheese"> Extra Cheese</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id="pineapples" value="Pineapples"> Pineapples</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id="olives" value="Olives"> Olives</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" id="anchovies" value="Anchovies"> Anchovies</label>
+              </div>
+
+
+            </div>
+            <!--other toppings -->
+          </div>
+          <!--row for custom pizza-->
+        </div>
+        <!--menu1>-->
+        <div id="menu2" class="tab-pane fade">
+          <div class="row">
+
+            <div class="col-md-4 col-sm-12" id="drinks">
+
+              <h3 class="itemheading">Drinks</h3>
+              <div class="cola"><input type="button" class="btn btn-success drink" value="Cola"></div>
+              <div class="gingerale"><input type="button" class="btn btn-success drink" value="Ginger Ale"></div>
+              <div class="fruitpunch"><input type="button" class="btn btn-success drink" value="Fruit Punch"></div>
+              <div class="grapesoda"><input type="button" class="btn btn-success drink" value="Grape Soda"></div>
+              <div class="water"><input type="button" class="btn btn-success drink" value="Water"></div>
+              <div class="tea"><input type="button" class="btn btn-success drink" value="Tea"></div>
+              <div class="coffee"><input type="button" class="btn btn-success drink" value="Coffee"></div>
+
+            </div>
+            <!--drinks-->
+
+            <div class="col-md-4 col-sm-12" id="sides">
+
+              <h3 class="itemheading">Sides</h3>
+              <div class="garlicknots"><input type="button" class="btn btn-success side" value="Garlic Knots"></div>
+              <div class="mozzarella"><input type="button" class="btn btn-success side" value="Mozzarella Salad"></div>
+              <div class="salad"><input type="button" class="btn btn-success side" value="House Salad"></div>
+
+            </div>
+            <!--sides-->
+            <div class="col-md-4 col-sm-12" id="sauces">
+
+              <h3 class="itemheading">Sauces</h3>
+              <div class="marinara"><input type="button" class="btn btn-success sauce" value="Marinara"></div>
+              <div class="bbq"><input type="button" class="btn btn-success sauce" value="BBQ"></div>
+              <div class="ranch"><input type="button" class="btn btn-success sauce" value="Ranch"></div>
+
+            </div>
+            <!--sauces-->
+
+
+          </div>
+          <!--drinks and sides row-->
+
+
+
+        </div>
+        <!--menu2-->
+
+      </div>
+      <!--tabs-->
+    </div>
+    <!--container fluid-->
+  </div>
+  <div class="modal fade" id="orderconfirmation">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+          <h4 class="modal-title">Your Order Has Been Received</h4>
+        </div>
+        <div class="modal-body">
+          <p class="darktext">Your order number is <span id="ordernumber"></span> and the total cost is $<span id="totalcost"></span>. Please come down and pick up your food.  It will be ready within 30 minutes.  You're going to love it.</p>
+          <p class="darktext">---Your friends at Just Pizza</p>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+
+
+
+  <footer>
+    <a href="https://www.google.com/maps/place/455+5th+Ave,+New+York,+NY+10016/@40.7518903,-73.9838996,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2590099ec6269:0x158023caeee9366f!8m2!3d40.7518863!4d-73.9817055"> 455 Fifth Ave, New York NY 10016,</a> 212-345-6789
+    <br>
+    <img src="images/facebook-logo.png" alt="Facebook" />
+    <img src="images/Twitter_Logo_Blue.png" alt="Twitter" />
+
+  </footer>
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="js/jquery.min.js"></script>
+
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
